@@ -4,7 +4,7 @@ import { api } from '../api'
 import { useAuth } from '../hooks/useAuth'
 
 const CATEGORIES = ['electronics', 'clothing', 'documents', 'accessories', 'other']
-const STATUSES = ['lost', 'found', 'claimed']
+const STATUS = ['lost', 'found', 'claimed']
 
 export default function Items() {
   const { user } = useAuth()
@@ -34,11 +34,11 @@ export default function Items() {
     <div className="space-y-4">
       <div className="card flex items-center gap-2">
         <select className="input" value={status} onChange={e => setStatus(e.target.value)}>
-          <option value="">All statuses</option>
-          {STATUSES.map(s => <option key={s} value={s}>{s}</option>)}
+          <option value="">Status</option>
+          {STATUS.map(s => <option key={s} value={s}>{s}</option>)}
         </select>
         <select className="input" value={category} onChange={e => setCategory(e.target.value)}>
-          <option value="">All categories</option>
+          <option value="">Category</option>
           {CATEGORIES.map(c => <option key={c} value={c}>{c}</option>)}
         </select>
       </div>
